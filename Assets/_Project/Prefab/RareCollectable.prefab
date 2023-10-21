@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RareCollectable
       objectReference: {fileID: 0}
+    - target: {fileID: 4332581628131749670, guid: cad748b6eea08fd489f16ad69ff86003,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a691efad36dc0a0469a6b1df278fe522, type: 2}
     - target: {fileID: 5811857111259752629, guid: cad748b6eea08fd489f16ad69ff86003,
         type: 3}
       propertyPath: rarity
