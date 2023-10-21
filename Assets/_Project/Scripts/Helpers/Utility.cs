@@ -30,6 +30,21 @@ public static class Utility
         return textMesh;
     }
 
+    public static RaycastHit GetMouseHit()
+    {
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+
+        mousePos.z = 10f;
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+        if (Physics.Raycast(ray, out hit))
+        {
+            return hit;
+        }
+        else
+            return default;
+    }
     public static Vector3 GetMouseHitPoint()
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
@@ -111,7 +126,6 @@ public static class Utility
             timeToDisplay += 1;
         }
 
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         return string.Format("{0:00}", seconds);
