@@ -22,7 +22,7 @@ public class CardObject : MonoBehaviour
 
         //enable cursor
         var input = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
-        input.SetCursorState(false);
+        if(input != null) input.SetCursorState(false);
     }
     private void Start()
     {
