@@ -13,6 +13,9 @@ public class CardObject : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private bool flippable;
 
+    [Header("Card Properties")]
+    [SerializeField] private Rarity rarity;
+
     private Animator animator;
 
     private void Awake()
