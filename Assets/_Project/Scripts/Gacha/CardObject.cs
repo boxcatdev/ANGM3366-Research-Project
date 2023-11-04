@@ -18,10 +18,12 @@ public class CardObject : MonoBehaviour
 
     private Animator animator;
 
+    private bool isBack;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        animator.enabled = false;
+        DisableAnimator();
 
         //enable cursor
         var input = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
@@ -50,6 +52,7 @@ public class CardObject : MonoBehaviour
         {
             cardFront.SetActive(false);
             cardBack.SetActive(true);
+            isBack = true;
         }
     }
     private void ChangeToCardFront()
@@ -58,7 +61,9 @@ public class CardObject : MonoBehaviour
         {
             cardFront.SetActive(true);
             cardBack.SetActive(false);
+            isBack = false;
         }
     }
     #endregion
+
 }
