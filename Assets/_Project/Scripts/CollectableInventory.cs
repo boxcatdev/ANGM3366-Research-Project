@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class CollectableInventory : MonoBehaviour
 
     List<Collectable> collectables;
     Dictionary<Rarity, int> collectableDictionary;
+
+    public Action<Dictionary<Rarity, int>> OnInventoryChanged;
 
     #region Monobehavior
     private void Awake()
@@ -23,12 +26,15 @@ public class CollectableInventory : MonoBehaviour
         collectables = new List<Collectable>();
         collectables.Clear();
 
-        collectableDictionary = new Dictionary<Rarity, int>();
-        collectableDictionary.Add(Rarity.Common, 0);
-        collectableDictionary.Add(Rarity.Uncommon, 0);
-        collectableDictionary.Add(Rarity.Rare, 0);
-        collectableDictionary.Add(Rarity.UltraRare, 0);
-        collectableDictionary.Add(Rarity.OneOfAKind, 0);
+        collectableDictionary = new Dictionary<Rarity, int>()
+        {
+            { Rarity.Common, 0 },
+            { Rarity.Uncommon, 0 },
+            { Rarity.Rare, 0 },
+            { Rarity.UltraRare, 0 },
+            { Rarity.OneOfAKind, 0 },
+
+        };
 
         RefreshCollectableUI();
     }
@@ -38,6 +44,7 @@ public class CollectableInventory : MonoBehaviour
 
         Debug.LogFormat("Rarity: {0}, Amount: {1}", collectable.rarity.ToString(), collectableDictionary[collectable.rarity]);
 
+        OnInventoryChanged?.Invoke(collectableDictionary);
         RefreshCollectableUI();
 
         #region List Method
@@ -76,6 +83,7 @@ public class CollectableInventory : MonoBehaviour
 
         Debug.LogFormat("Rarity: {0}, Amount: {1}", rarity.ToString(), collectableDictionary[rarity]);
 
+        OnInventoryChanged?.Invoke(collectableDictionary);
         RefreshCollectableUI();
     }
     public int GetAmountInInventory(Rarity rarity)

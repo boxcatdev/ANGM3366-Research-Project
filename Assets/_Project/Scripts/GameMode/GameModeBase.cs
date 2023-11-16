@@ -12,8 +12,16 @@ public class GameModeBase : MonoBehaviour
 
     public UnityEvent OnTimerEnd;
 
+    //timer
     private float timeRemaining;
 
+    //storage
+    protected Dictionary<Rarity, int> storedCollectables;
+
+    private void Awake()
+    {
+        storedCollectables = new Dictionary<Rarity, int>();
+    }
     private void Start()
     {
         timeRemaining = timeLimit;
@@ -40,5 +48,9 @@ public class GameModeBase : MonoBehaviour
         {
             timerDisplay.text = Utility.DisplayTimeMinutes(timeRemaining);
         }
+    }
+    public void StoreCollectables(Dictionary<Rarity, int> collectableInventory)
+    {
+        storedCollectables = new Dictionary<Rarity, int>(collectableInventory);
     }
 }
