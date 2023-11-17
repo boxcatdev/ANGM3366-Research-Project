@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Diagnostics;
-using UnityEditor.ShaderGraph.Drawing;
 
 public class CardObject : MonoBehaviour
 {
