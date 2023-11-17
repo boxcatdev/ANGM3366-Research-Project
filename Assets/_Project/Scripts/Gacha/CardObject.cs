@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Diagnostics;
 
 public class CardObject : MonoBehaviour
 {
@@ -76,6 +77,27 @@ public class CardObject : MonoBehaviour
 
             //disable upgrade button
             if(upgradeButton != null) upgradeButton.SetActive(false);
+        }
+    }
+    public void BuyUpgrade()
+    {
+        UnityEngine.Debug.Log("BuyUpgrade()");
+
+        //check if inventory contains enough to upgrade
+        //remove cost from inventory and add new
+        //add more of that gem into player's inventory
+
+        Dictionary<Rarity, int> inventoryRef = GameInstance.Instance.GlobalInventory;
+
+        if (inventoryRef[upgradeRarity] >= upgradeCost)
+        {
+            //has enough to upgrade
+
+            GameInstance.Instance.RemoveFromGlobalInventory(upgradeRarity, upgradeCost);
+
+            GameInstance.Instance.AddToGlobalInventory(rarity, 1);
+
+            UnityEngine.Debug.Log(GameInstance.Instance.GlobalInventory[rarity]);
         }
     }
     #endregion

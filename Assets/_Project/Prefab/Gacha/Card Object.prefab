@@ -410,7 +410,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6824896986451712046}
         m_TargetAssemblyTypeName: CardObject, Assembly-CSharp
-        m_MethodName: UpgradeCard
+        m_MethodName: BuyUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

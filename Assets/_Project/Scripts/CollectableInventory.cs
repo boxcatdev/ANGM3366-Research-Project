@@ -9,7 +9,7 @@ public class CollectableInventory : MonoBehaviour
     [SerializeField] TextMeshProUGUI collectableUI;
 
     List<Collectable> collectables;
-    Dictionary<Rarity, int> collectableDictionary;
+    public Dictionary<Rarity, int> collectableDictionary {  get; private set; }
 
     public Action<Dictionary<Rarity, int>> OnInventoryChanged;
 
