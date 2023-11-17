@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Diagnostics;
+using UnityEditor.ShaderGraph.Drawing;
 
 public class CardObject : MonoBehaviour
 {
@@ -151,6 +152,10 @@ public class CardObject : MonoBehaviour
 
         //change Gem Cost amount
         if(textUpgradeCost.text != upgradeCost.ToString()) textUpgradeCost.text = upgradeCost.ToString();
+
+        //switch between flippable and not
+        if(flippable && upgradeButton.activeInHierarchy) upgradeButton.SetActive(false);
+        if (!flippable && !upgradeButton.activeInHierarchy) upgradeButton.SetActive(true);
     }
     #endregion
 

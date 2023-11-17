@@ -15,6 +15,7 @@ public class GachaGemCount : MonoBehaviour
     private void Start()
     {
         GameInstance.Instance.OnGlobalInventoryChanged += RefreshDisplay;
+        RefreshDisplay();
     }
 
     private void RefreshDisplay()

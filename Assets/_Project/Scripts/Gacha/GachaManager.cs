@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GachaManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Canvases")]
+    [SerializeField] GameObject upgradeCanvas;
+    [SerializeField] GameObject rollCanvas;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        SwitchToUpgradeCanvas();
+    }
+    public void SwitchToRollCanvas()
+    {
+        if(upgradeCanvas != null && rollCanvas != null)
+        {
+            upgradeCanvas.SetActive(false);
+            rollCanvas.SetActive(true);
+        }
+    }
+    public void SwitchToUpgradeCanvas()
+    {
+        if (upgradeCanvas != null && rollCanvas != null)
+        {
+            upgradeCanvas.SetActive(true);
+            rollCanvas.SetActive(false);
+        }
     }
 }

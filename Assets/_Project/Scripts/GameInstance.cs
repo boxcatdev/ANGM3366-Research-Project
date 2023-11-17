@@ -33,11 +33,11 @@ public class GameInstance : MonoBehaviour
         //collectable inventory
         GlobalInventory = new Dictionary<Rarity, int>()
         {
-            {Rarity.Common, 4},
-            {Rarity.Uncommon, 4},
-            {Rarity.Rare, 4},
-            {Rarity.UltraRare, 4},
-            {Rarity.OneOfAKind, 4},
+            {Rarity.Common, 0},
+            {Rarity.Uncommon, 0},
+            {Rarity.Rare, 0},
+            {Rarity.UltraRare, 0},
+            {Rarity.OneOfAKind, 0},
         };
 
     }
