@@ -5,11 +5,14 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
+    [Header("Spawn Settings")]
     [SerializeField] private Transform spawnPrefab;
     [SerializeField] private int spawnCount = 10;
     [SerializeField] private float spawnRadius = 10f;
+    [SerializeField] private float minRadius = 1f;
     [SerializeField] private float spawnCooldown = 5f;
-    [Space]
+
+    [Header("Debug Values")]
     [SerializeField] private float cooldownProgress;
     [SerializeField] private bool canSpawn = true;
 
@@ -64,7 +67,8 @@ public class Spawner : MonoBehaviour
             while (valid == false)
             {
                 Vector3 spawnPos = new Vector3(Random.Range(-spawnRadius, spawnRadius), 0, Random.Range(-spawnRadius, spawnRadius));
-                if(Vector3.Distance(spawnPos, Vector3.zero) <= spawnRadius)
+                float dist = Vector3.Distance(spawnPos, Vector3.zero);
+                if (dist <= spawnRadius && dist >= minRadius)
                 {
                     valid = true;
                     Transform collectable = Instantiate(spawnPrefab, transform);
