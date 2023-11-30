@@ -16,7 +16,10 @@ public class DisplayPopup : MonoBehaviour
 
     private void Awake()
     {
-        inventory.OnInventoryChanged += RefreshValues;
+        if (inventory == null)
+            Debug.LogError("Missing Inventory");
+        else
+            inventory.OnInventoryChanged += RefreshValues;
     }
 
     private void RefreshValues(Dictionary<Rarity, int> values)
