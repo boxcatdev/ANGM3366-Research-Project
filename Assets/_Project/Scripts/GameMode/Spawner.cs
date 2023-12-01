@@ -12,9 +12,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minRadius = 1f;
     [SerializeField] private float spawnCooldown = 5f;
 
-    [Header("Debug Values")]
-    [SerializeField] private float cooldownProgress;
-    [SerializeField] private bool canSpawn = true;
+    public float cooldownProgress {  get; private set; }
+    public bool canSpawn { get; private set; }
 
     private Damageable damageable;
 
@@ -86,5 +85,6 @@ public class Spawner : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, spawnRadius);
+        Gizmos.DrawWireSphere(transform.position, minRadius);
     }
 }

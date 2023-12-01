@@ -8827,7 +8827,7 @@ PrefabInstance:
     - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
         type: 3}
       propertyPath: spawnCooldown
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9593,7 +9593,7 @@ PrefabInstance:
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
@@ -9603,7 +9603,7 @@ PrefabInstance:
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
@@ -9673,7 +9673,7 @@ PrefabInstance:
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 85
+      value: -85
       objectReference: {fileID: 0}
     - target: {fileID: 847190484687385146, guid: fd0393c1047148c438d945f54a309d9c,
         type: 3}
