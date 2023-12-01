@@ -10,7 +10,7 @@ public class GachaManager : MonoBehaviour
 
     private void Start()
     {
-        SwitchToUpgradeCanvas();
+        //SwitchToUpgradeCanvas();
     }
     public void SwitchToRollCanvas()
     {

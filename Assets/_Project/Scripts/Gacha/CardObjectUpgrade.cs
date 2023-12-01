@@ -6,7 +6,7 @@ using TMPro;
 using System;
 using System.Diagnostics;
 
-public class CardObject : MonoBehaviour
+public class CardObjectUpgrade : MonoBehaviour
 {
     [Header("Transforms")]
     [SerializeField] private GameObject cardFront;
