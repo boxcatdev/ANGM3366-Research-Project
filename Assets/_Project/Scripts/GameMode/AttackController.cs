@@ -13,6 +13,9 @@ public class AttackController : MonoBehaviour
     [SerializeField] private int hitDamage = 1;
     public float attackCooldown = 3f;
 
+    [Header("Attack VFX")]
+    [SerializeField] private Transform attackVFX;
+
     public float cooldownProgress {  get; private set; }
     public bool canAttack {  get; private set; }
 
@@ -35,7 +38,6 @@ public class AttackController : MonoBehaviour
             {
                 cooldownProgress = attackCooldown;
                 canAttack = true;
-                OnAttack?.Invoke();
             }
         }
         #endregion
@@ -65,7 +67,13 @@ public class AttackController : MonoBehaviour
             }
         }
 
+        //instantiate vfx
+        Transform vfx = Instantiate(attackVFX, transform);
+        vfx.SetParent(null);
+
+        //trigger cooldown
         canAttack = false;
+        OnAttack?.Invoke();
     }
     private Collider[] GetHitColliders(Vector3 position, float range)
     {
