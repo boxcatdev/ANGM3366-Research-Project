@@ -586,6 +586,18 @@ MonoBehaviour:
   OnAttack:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &124870558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124870536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320b130b422f85841bc6278cc7b99b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &129487183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -730,8 +742,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
         type: 3}
+      propertyPath: spawnCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
+        type: 3}
       propertyPath: spawnCooldown
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1959,7 +1976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d975ab1a5b3cdb4d90cd90d7d87301d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 60
+  timeLimit: 15
   timerDisplay: {fileID: 2100040053}
   OnTimerEnd:
     m_PersistentCalls:
@@ -3352,8 +3369,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
         type: 3}
+      propertyPath: spawnCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
+        type: 3}
       propertyPath: spawnCooldown
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7433,6 +7455,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 124870558}
+    - targetCorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 124870551}
   m_SourcePrefab: {fileID: 100100000, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
 --- !u!1 &2405301710449567225
@@ -8775,8 +8801,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
         type: 3}
+      propertyPath: spawnCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6697696343425535960, guid: a181dccaf6fa3af42b243c3dba14de7f,
+        type: 3}
       propertyPath: spawnCooldown
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

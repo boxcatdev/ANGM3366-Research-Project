@@ -14,6 +14,7 @@ public class GameMode1 : GameModeBase
 
     public void ScoreRound()
     {
-        GameInstance.Instance.CombineToGlobalInventory(playerInventory.collectableDictionary);
+        //GameInstance.Instance.CombineToGlobalInventory(playerInventory.collectableDictionary);
+        GameInstance.Instance.UpdateGlobalInventory(playerInventory.collectableDictionary);
     }
 }

@@ -56,6 +56,14 @@ public class GameInstance : MonoBehaviour
 
         OnGlobalInventoryChanged?.Invoke();
     }
+    public void UpdateGlobalInventory(Dictionary <Rarity, int> playerInventory)
+    {
+        foreach(var pair in playerInventory)
+        {
+            GlobalInventory[pair.Key] = playerInventory[pair.Key];
+        }
+        OnGlobalInventoryChanged?.Invoke();
+    }
     public void AddToGlobalInventory(Rarity rarity, int amount)
     {
         GlobalInventory[rarity] += amount;

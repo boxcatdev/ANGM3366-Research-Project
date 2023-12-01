@@ -46,35 +46,15 @@ public class CollectableInventory : MonoBehaviour
 
         OnInventoryChanged?.Invoke(collectableDictionary);
         RefreshCollectableUI();
+    }
+    public void AddToInventory(Rarity rarity, int amount)
+    {
+        collectableDictionary[rarity] += amount;
 
-        #region List Method
-        /*if (!collectables.Contains(collectable))
-            collectables.Add(collectable);
+        Debug.LogFormat("Rarity: {0}, Amount: {1}", rarity.ToString(), collectableDictionary[rarity]);
 
-        //Debug.LogFormat("Rarity: {0}, Amount: {1}", collectable.rarity.ToString(), collectable.value);
-
-        //check list if collectables with similar rarity are already in the list
-        if(collectables.Count > 0)
-        {
-            //int count = 0;
-            foreach (var item in collectables)
-            {
-                if (collectable.rarity == item.rarity)
-                {
-                    item.value += collectable.value;
-                }
-                else
-                {
-
-                }
-                
-            }
-        }
-        else
-        {
-            collectables.Add(collectable);
-        }*/
-        #endregion
+        OnInventoryChanged?.Invoke(collectableDictionary);
+        RefreshCollectableUI();
     }
     public void RemoveFromInventory(Rarity rarity, int amount)
     {
