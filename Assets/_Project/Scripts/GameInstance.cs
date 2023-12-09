@@ -7,6 +7,9 @@ public class GameInstance : MonoBehaviour
 {
     public static GameInstance Instance { get; private set; }
 
+    public static StatsProfile Profile = new StatsProfile();
+    //private bool isProfileSetup = false;
+
     //storage
     public Dictionary<Rarity, int> GlobalInventory { get; private set; }
 
@@ -28,6 +31,16 @@ public class GameInstance : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+        #endregion
+
+        #region Stats Singleton
+        if(Profile.isProfileSetup == false)
+        {
+            //Profile = new StatsProfile();
+            Profile.ResetProperties(3f, 2f, 0.5f);
+            //Profile.ResetProperties(3f, 5f, 3f);
+            Debug.LogWarning("ResetProperties()");
+        }
         #endregion
 
         //collectable inventory

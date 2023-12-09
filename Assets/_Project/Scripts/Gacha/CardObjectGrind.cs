@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using static CardObjectUpgrade;
-
+using UnityEditor.iOS.Xcode;
+using Unity.VisualScripting;
 
 public class CardObjectGrind : MonoBehaviour
 {
@@ -15,21 +16,19 @@ public class CardObjectGrind : MonoBehaviour
 
     [Header("Card Properties")]
     [SerializeField] private Rarity rarity;
-    [SerializeField, Range(1, 50)] private int cardCost;
+    [SerializeField, Range(1, 1000)] private int cardCost;
 
     [Header("Visibility Settings")]
     [SerializeField] TextMeshProUGUI costText;
 
-    //[Header("Attributes")]
-    //[SerializeField] private bool flippable;
-
-    /*[Header("Visibility Settings")]
-    [SerializeField] private Image CardGemIcon;
+    [Header("Multipliers")]
+    [SerializeField] private TextMeshProUGUI cooldownText;
+    [SerializeField] private TextMeshProUGUI speedText;
+    [SerializeField] private TextMeshProUGUI rangeText;
     [Space]
-    [SerializeField] private TextMeshProUGUI textUpgradeCost;
-    [SerializeField] private Image imgUpgradeGem;
-    [Space]
-    [SerializeField] private List<Color> gemColors = new List<Color>();*/
+    [SerializeField] private float cooldownMultiplier;
+    [SerializeField] private float speedMultiplier;
+    [SerializeField] private float rangeMultiplier;
 
     //references
     private Animator animator;
@@ -49,6 +48,7 @@ public class CardObjectGrind : MonoBehaviour
         ChangeToCardBack();
         RefreshCostText();
         CanAffordCard(cardCost);
+        SetupMultiplierTexts();
     }
 
     #region Gacha stuff
@@ -73,6 +73,20 @@ public class CardObjectGrind : MonoBehaviour
         Debug.LogFormat("Dictionary: {0}, Cost: {1}", inventoryRef[Rarity.Common], cost);
 
         return canFlip;
+    }
+
+    //multipliers
+    private void SetupMultiplierTexts()
+    {
+        if (cooldownText != null) cooldownText.text = "-" + Mathf.Abs(cooldownMultiplier) + "%";
+        if (speedText != null) speedText.text = "+" + Mathf.Abs(speedMultiplier) + "%";
+        if (rangeText != null) rangeText.text = "+" + Mathf.Abs(rangeMultiplier) + "%";
+    }
+    public void ApplyCardMultiplier()
+    {
+        GameInstance.Profile.ApplyMultiplier(Mathf.Abs(cooldownMultiplier), PropertyType.Cooldown);
+        GameInstance.Profile.ApplyMultiplier(Mathf.Abs(speedMultiplier), PropertyType.Speed);
+        GameInstance.Profile.ApplyMultiplier(Mathf.Abs(rangeMultiplier), PropertyType.Range);
     }
 
     #endregion
