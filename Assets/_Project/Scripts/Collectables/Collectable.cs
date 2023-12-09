@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+//[RequireComponent(typeof(Rigidbody))]
 public class Collectable : MonoBehaviour
 {
     public Rarity rarity;
@@ -11,12 +11,12 @@ public class Collectable : MonoBehaviour
 
     public float triggerRange = 1.5f;
 
-    private Rigidbody rbody;
+    //private Rigidbody rbody;
     private SphereCollider trigger;
 
     private void Awake()
     {
-        rbody = GetComponent<Rigidbody>();
+        //rbody = GetComponent<Rigidbody>();
         trigger = GetComponent<SphereCollider>();
         trigger.radius = triggerRange;
     }

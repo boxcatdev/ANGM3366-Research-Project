@@ -10,7 +10,7 @@ public class CollectableVisuals : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private MeshRenderer meshRenderer;
-    [SerializeField] private Light light;
+    //[SerializeField] private Light light;
     [Header("Materials")]
     [SerializeField] private Material commonMaterial;
     [SerializeField] private Material uncommonMaterial;
@@ -23,12 +23,22 @@ public class CollectableVisuals : MonoBehaviour
     {
         collectable = GetComponent<Collectable>();
     }
-
-    private void Update()
+    private void Start()
     {
-        /*if(meshRenderer == null) meshRenderer = GetComponentInChildren<MeshRenderer>();
-        if(light == null) light = GetComponentInChildren<Light>();*/
-
+        if (meshRenderer != null)
+        {
+            if (collectable.rarity == Rarity.Common && meshRenderer.material != commonMaterial)
+                meshRenderer.material = commonMaterial;
+            if (collectable.rarity == Rarity.Uncommon && meshRenderer.material != uncommonMaterial)
+                meshRenderer.material = uncommonMaterial;
+            if (collectable.rarity == Rarity.Rare && meshRenderer.material != rareMaterial)
+                meshRenderer.material = rareMaterial;
+            if (collectable.rarity == Rarity.UltraRare && meshRenderer.material != ultraRareMaterial)
+                meshRenderer.material = ultraRareMaterial;
+        }
+    }
+    /*private void Update()
+    {
         if(meshRenderer != null)
         {
             if (collectable.rarity == Rarity.Common && meshRenderer.material != commonMaterial)
@@ -39,8 +49,6 @@ public class CollectableVisuals : MonoBehaviour
                 meshRenderer.material = rareMaterial;
             if (collectable.rarity == Rarity.UltraRare && meshRenderer.material != ultraRareMaterial)
                 meshRenderer.material = ultraRareMaterial;
-            /*if (collectable.rarity == Rarity.OneOfAKind && meshRenderer.material != oneOfAKindMaterial)
-                meshRenderer.material = oneOfAKindMaterial;*/
         }
-    }
+    }*/
 }
