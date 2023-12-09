@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
-using static CardObjectUpgrade;
-using UnityEditor.iOS.Xcode;
-using Unity.VisualScripting;
+//using static CardObjectUpgrade;
+//using UnityEditor.iOS.Xcode;
+//using Unity.VisualScripting;
 
 public class CardObjectGrind : MonoBehaviour
 {
@@ -59,6 +59,8 @@ public class CardObjectGrind : MonoBehaviour
         {
             GameInstance.Instance.RemoveFromGlobalInventory(Rarity.Common, cardCost);
             FlipCard();
+
+            ApplyCardMultiplier();
         }
     }
     private bool CanAffordCard(int cost)
@@ -82,8 +84,9 @@ public class CardObjectGrind : MonoBehaviour
         if (speedText != null) speedText.text = "+" + Mathf.Abs(speedMultiplier) + "%";
         if (rangeText != null) rangeText.text = "+" + Mathf.Abs(rangeMultiplier) + "%";
     }
-    public void ApplyCardMultiplier()
+    private void ApplyCardMultiplier()
     {
+        Debug.LogWarning("Bought");
         GameInstance.Profile.ApplyMultiplier(Mathf.Abs(cooldownMultiplier), PropertyType.Cooldown);
         GameInstance.Profile.ApplyMultiplier(Mathf.Abs(speedMultiplier), PropertyType.Speed);
         GameInstance.Profile.ApplyMultiplier(Mathf.Abs(rangeMultiplier), PropertyType.Range);

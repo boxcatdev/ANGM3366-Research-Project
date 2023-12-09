@@ -7,6 +7,7 @@ public class Collectable : MonoBehaviour
 {
     public Rarity rarity;
     public int value = 1;
+    public bool hasCombined = false;
 
     public float triggerRange = 1.5f;
 
@@ -19,13 +20,29 @@ public class Collectable : MonoBehaviour
         trigger = GetComponent<SphereCollider>();
         trigger.radius = triggerRange;
     }
+    public void DestroySelf()
+    {
+        Destroy(this);
+        Destroy(gameObject);
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out CollectableInventory inventory))
+        /*if (other.TryGetComponent(out Collectable collectable))
+        {
+            if(collectable.priority > priority)
+            {
+                collectable.value = collectable.value + value;
+                Destroy(this);
+                Destroy(gameObject);
+            }
+            value += collectable.value;
+            
+        }*/
+        if (other.TryGetComponent(out CollectableInventory inventory))
         {
             inventory.AddToInventory(this);
 
-            Destroy(gameObject);
+            DestroySelf();
         }
 
     }

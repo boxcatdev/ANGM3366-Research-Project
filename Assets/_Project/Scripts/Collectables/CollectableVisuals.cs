@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //[ExecuteAlways]
-[RequireComponent(typeof(Collectable))]
+//[RequireComponent(typeof(Collectable))]
 public class CollectableVisuals : MonoBehaviour
 {
     private Collectable collectable;
